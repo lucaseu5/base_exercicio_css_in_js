@@ -1,4 +1,4 @@
-import styles from './Vaga.module.css'
+import { VagaItem, VagaTitulo, VagaLink } from './styles'
 
 type Props = {
   titulo: string
@@ -10,22 +10,20 @@ type Props = {
   requisitos: string[]
 }
 
-const Vaga = (props: Props) => (
-  <li className={styles.vaga}>
-    <h3 className={styles.vagaTitulo}>{props.titulo}</h3>
+const Vaga: React.FC<Props> = (props) => (
+  <VagaItem>
+    <VagaTitulo>{props.titulo}</VagaTitulo>
     <ul>
-      <li>Localizacao: {props.localizacao}</li>
+      <li>Localização: {props.localizacao}</li>
       <li>Senioridade: {props.nivel}</li>
-      <li>Tipo de contratacao: {props.modalidade}</li>
+      <li>Tipo de contratação: {props.modalidade}</li>
       <li>
         Salário: {props.salarioMin} - {props.salarioMax}
       </li>
       <li>Requisitos: {props.requisitos.join(', ')}</li>
     </ul>
-    <a className={styles.vagaLink} href="#">
-      Ver detalhes e candidatar-se
-    </a>
-  </li>
+    <VagaLink href="#">Ver detalhes e candidatar-se</VagaLink>
+  </VagaItem>
 )
 
 export default Vaga
